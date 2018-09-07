@@ -1,5 +1,5 @@
-[
-    {
+{
+    "0": {
         "user_id": 0,
         "username": "ws392",
         "password": "pass123",
@@ -23,7 +23,7 @@
             }
         ]
     },
-    {
+    "1": {
         "user_id": 1,
         "username": "ppl980",
         "password": "pass1234",
@@ -35,18 +35,71 @@
             }
         ]
     },
-    {
+    "2": {
         "user_id": 2,
         "username": "asd77",
         "password": "pass1234",
         "avatar": "monkey",
         "saved_work": []
     },
-    {
+    "3": {
         "user_id": 3,
         "username": "dfe73",
         "password": "pass1234",
         "avatar": "snake",
         "saved_work": []
+    },
+    "4": {
+        "user_id": 4,
+        "username": "ara82@drexel.edu",
+        "password": "pass1234",
+        "avatar": null,
+        "saved_work": []
+    },
+    "5": {
+        "user_id": 5,
+        "username": "ben@bstudiosonline.com",
+        "password": "password",
+        "avatar": null,
+        "saved_work": [
+            {
+                "saved_id": 0,
+                "saved_source": "img\/saved\/saved_50.html"
+            },
+            {
+                "saved_id": 1,
+                "saved_source": "img\/saved\/saved_51.html"
+            },
+            {
+                "saved_id": 2,
+                "saved_source": "img\/saved\/saved_52.html"
+            },
+            {
+                "saved_id": 3,
+                "saved_source": "img\/saved\/saved_53.html"
+            },
+            {
+                "saved_id": 4,
+                "saved_source": "img\/saved\/saved_54.html"
+            },
+            {
+                "saved_id": 5,
+                "saved_source": "img\/saved\/saved_55.html"
+            },
+            {
+                "saved_id": 6,
+                "saved_source": "img\/saved\/saved_56.html"
+            },
+            {
+                "saved_id": 7,
+                "saved_source": "img\/saved\/saved_57.html"
+            }
+        ]
+    },
+    "": {
+        "saved_work": null
+    },
+    "6": {
+        "saved_work": null
     }
-]
+}

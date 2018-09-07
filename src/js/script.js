@@ -4,6 +4,9 @@ function load() {
 	$("[data-name='outline'], [data-name='outlines'], #outline").css('pointer-events','none');
 	$('svg').addClass('svg');
 	// scaleVal(30);
+	document.getElementById('save-work').value = '';
+	document.getElementById('save-path').value = '';
+	console.log(document.getElementById('save-path').value);
 }
 
 
@@ -13,6 +16,7 @@ var activeSat = 100;
 var activeLit = 60;
 
 var theScale;
+var activeColor;
 
 
 
@@ -61,14 +65,8 @@ function clearImage(which) {
 
 
 function scaleVal(incr) {
-<<<<<<< HEAD
 	let theScale = parseInt($('.activeModal.SVGbox svg').css('height'),10) * incr;
 	console.log(theScale);
-=======
-	theScale *= incr;
-	console.log(theScale);
-	// $('.activeModal svg').css('transform','scale(' + (scaleTo/20) + ')');
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
 	$('.activeModal svg').css('height', theScale + 'px');
 }
 
@@ -147,7 +145,6 @@ $(document).on('keypress', function(event) {
 	// }
 
 // 1-0 = Switch images
-<<<<<<< HEAD
 
 for (var i = 0; i < gallery.children.length; i++) {
 if (event.keyCode === (49 + i)) {
@@ -160,20 +157,6 @@ if (event.keyCode === 48) {
 }
 }
 
-=======
-
-for (var i = 0; i < gallery.children.length; i++) {
-if (event.keyCode === (49 + i)) {
-	if (event.keyCode < 58) {
-	openImage(gallery.children[i]);		
-	}
-}
-if (event.keyCode === 48) {
-	openImage(gallery.children[9]);
-}
-}
-
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
 
 // h = Hue shift (+)
 if (event.keyCode === 104) {
@@ -313,7 +296,7 @@ var swatchOpened = false;
 
 var schemes = [];
 for (var i = 0; i < palettes.children.length; i++) {
-	let aScheme = [];
+	var aScheme = [];
 	for (var j = 0; j < palettes.children[i].children.length; j++) {
 		aScheme.push(palettes.children[i].children[j].innerHTML);
 	}
@@ -402,17 +385,15 @@ $('#swatches').dblclick(function(){
 });
 
 function showRainbow() {
-<<<<<<< HEAD
-=======
+	log('showRainbow');
 	$('#toolkits').addClass('showRainbow');
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
 	clearInterval(idleInterval);
 	if ($('#toolkits').hasClass('showRainbow')) {
 		$('#toolkits').removeClass('showRainbow');
-		$('#seeColors').css('tranform','rotateY(0deg)');
+		// $('#seeColors').css('tranform','rotateY(0deg)');
 	} else {
 		$('#toolkits').addClass('showRainbow');
-		$('#seeColors').css('tranform','rotateY(180deg)');
+		// $('#seeColors').css('tranform','rotateY(180deg)');
 	    idleInterval = setInterval(timer, 1000); 
 
 	}
@@ -439,14 +420,12 @@ function movePicker(left, top) {
 	h = colorPicker.clientHeight;
 	pickerButton.style.left = (w*left/360) + "px";
 	pickerButton.style.top = (h*(1-top/100)) + "px";
-
 	console.log("picker left = " + pickerButton.style.left + ", picker top = " + pickerButton.style.top);
 }
 
 
 
 // UI INTERACTIONS
-
 
 $('#title').click(function (){closeModals()});
 $('#userBtn').click(function (){openModal('#userModal')});
@@ -460,24 +439,26 @@ $("#gallery").on("click", ".SVGbox", function() {
 	}
 });
 
+$("#myGallery").on("click", ".SVGbox", function () {
+	if ($(this).hasClass('activeModal')) {
+		console.log('already open');
+	} else {
+		openImage(this);
+	}
+});
+
 function openImage(that) {
 
 	openModal(that);
-<<<<<<< HEAD
-	$('.activeModal svg').css('height','100vh');	
-=======
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
+	//$('.activeModal svg').css('height','100vh');	
 	$('#toolkits').removeClass('hide');
 
 	if (!swatchOpened) {
 		setTimeout(function(){setSwatches(theScheme);}, 500);		
 		swatchOpened = true;
 	}
-<<<<<<< HEAD
-=======
 	// let selector = " " + that + " "
 	theScale = parseInt($(that).css('height'),10);
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
 
 }
 
@@ -487,41 +468,15 @@ function openModal(modal) {
 	if ($(modal).hasClass('activeModal') && (!$(modal).hasClass('SVGbox'))) {
 		closeModals();
 	}else {
-<<<<<<< HEAD
-		if ($(modal).is('#userModal')) {			
-			$('#userBtn svg path').css('fill','#ffba40');
-			$('#helpBtn img').attr('src','icon/help.png');
-=======
-		title.src = "img/auroraLogoL.png";
-		$('.SVGbox svg').css('height','15rem');
-		$('*').removeClass('activeModal');
-		if ($(modal).is('#userModal')) {			
-			$('#userBtn svg path').css('fill','#ffba40');
-			// $('#helpBtn svg path').css('fill','#f5f5f5');
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
-		}
-		if ($(modal).is('#helpModal')) {			
-			$('#helpBtn svg path').css('fill','#86fff7');
-			$('#helpBtn img').attr('src','icon/helpOpen.png');
-}
+
 		$(modal).addClass('activeModal');
 	}
 }
 
 function closeModals() {
 	$('.activeModal svg').css('height','15rem');
-<<<<<<< HEAD
 	$('*').removeClass('activeModal');
 	$('.toolkits').addClass('hide');
-=======
-	// theScale = 10;
-	$('*').removeClass('activeModal');
-	$('.toolkits').addClass('hide');
-
-	title.src = "img/auroraLogoL.png";
-	nav.style.background = 'linear-gradient(rgba(0,0,10,.7) 0%, transparent)';
-	$('#userBtn svg path, #helpBtn svg path').css('fill','#f5f5f5');
->>>>>>> 0965179b9a046d96af3a856236481360a6ba938a
 	$('#helpBtn img').attr('src','icon/help.png');
 	$('#title, .icon svg').css('filter','drop-shadow(0 0 10px black)');
 
@@ -544,9 +499,9 @@ var backCount = 0;
 
 function setUndo(el){
 
-	let lastMove = [];
+	var lastMove = [];
 	for (var i = 0; i < el.length; i++) {
-	    let lastMoves = new Object();
+	    var lastMoves = new Object();
 	    lastMoves.el = el[i];
 	    if (el[i].style.fill !== "") {
 		    lastMoves.fillColor = el[i].style.fill;	    	
